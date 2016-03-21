@@ -1,4 +1,4 @@
-package com.genshun.weatherapi;
+package com.example.genshun.apitest;
 
 import org.junit.Test;
 

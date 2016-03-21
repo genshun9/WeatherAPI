@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.genshun.weatherapi"
+        applicationId "com.example.genshun.apitest"
         minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
@@ -25,7 +30,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'io.reactivex:rxandroid:0.24.0'
-    compile 'com.google.code.gson:gson:2.3'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.4.4@jar'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.4@jar'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4@jar'
 }

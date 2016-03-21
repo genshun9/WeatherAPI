@@ -1,4 +1,4 @@
-package com.genshun.weatherapi;
+package com.example.genshun.apitest;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
