@@ -1,5 +1,6 @@
 package com.example.genshun.apitest;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getGurunavi(View view) {
-        TextView tv = (TextView) findViewById(R.id.myTextView);
+        final TextView tv = (TextView) findViewById(R.id.myTextView);
         String result1 = "getGurunavi";
         tv.setText(result1);
 
@@ -73,9 +74,17 @@ public class MainActivity extends AppCompatActivity {
 
             String url = uri.toString();
 
-            AsyncHttpRequest task = new AsyncHttpRequest(this);
+            AsyncHttpRequest task = new AsyncHttpRequest() {
+                @Override
+                protected void onPostExecute(String param) {
+                    // 取得した結果をテキストビューに入れちゃったり
+                    Intent intent = new Intent(MainActivity.this, SubActivity.class);
+                    intent.putExtra("param", param);
+                    startActivity(intent);
+                }
+            };
             task.execute(url);
         }
-    }
 
+    }
 }

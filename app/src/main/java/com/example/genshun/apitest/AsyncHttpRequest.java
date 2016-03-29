@@ -1,6 +1,7 @@
 package com.example.genshun.apitest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.widget.TextView;
@@ -17,12 +18,7 @@ import java.util.Iterator;
  */
 public class AsyncHttpRequest extends AsyncTask<String, Void, String> {
 
-    private Activity MainActivity;
-
-    public AsyncHttpRequest(Activity activity) {
-
-        // 呼び出し元のアクティビティ
-        this.MainActivity = activity;
+    public AsyncHttpRequest() {
     }
 
     @Override
@@ -73,22 +69,10 @@ public class AsyncHttpRequest extends AsyncTask<String, Void, String> {
                 for (JsonNode n : r.path("code").path("category_name_s")) {
                     categorys += n.asText();
                 }
+
                 System.out.println(id + "¥t" + name + "¥t" + line + "¥t" + station + "¥t" + walk + "¥t" + categorys);
             }
         }
 
-    }
-
-    @Override
-    protected void onPostExecute(String param) {
-        // 取得した結果をテキストビューに入れちゃったり
-        TextView textView = (TextView) this.MainActivity.findViewById(R.id.urlTextView);
-
-        // TextViewの文字列をセット
-        textView.setText(param);
-
-        System.out.println("FINISH");
-
-        return;
     }
 }
