@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 protected void onPostExecute(String param) {
                     // 取得した結果をテキストビューに入れちゃったり
+                    System.out.println("ONPOST");
+                    System.out.println(param);
                     Intent intent = new Intent(MainActivity.this, SubActivity.class);
                     intent.putExtra("param", param);
                     startActivity(intent);
